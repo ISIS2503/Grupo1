@@ -1,4 +1,4 @@
-# Grupo1 (Los Minerales)
+# Grupo 1 (Los Minerales)
 # Project Title
 
 One Paragraph of project description goes here
