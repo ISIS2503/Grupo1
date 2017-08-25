@@ -56,7 +56,7 @@ Give an example
 
 ## Authors
 
-* **Pablo Alvarado** - [pablo](https://github.com/jssosa10)
+* **Pablo Alvarado** - [paalvarado10](https://github.com/paalvarado10)
 * **Diego Castro Losada** - [diegocastrolosada](https://github.com/diegocastrolosada)
 * **James Lake** - [james](https://github.com/jssosa10)
 * **Pedro Salazar** - [p-salazar12](https://github.com/p-salazar12)
