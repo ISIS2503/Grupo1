@@ -1,8 +1,6 @@
-# Grupo 1 (Minerales Andinos)
+# Grupo 1: Los Minerales 
 
-# Project Title
-
-MONITOREO Y CONTROL DE LA CALIDAD DE VARIABLES AMBIENTALES EN MINAS
+# Monitoreo y control de la calidad de variables ambientales en minas 
 
 # Project Description
 La explotación minera de carbón es la segunda fuente generadora de divisas para Colombia, aunque este sector ha sido liderado por el departamento de la costa atlántica, se evidencia un fuerte crecimiento en los departamentos de Boyacá y Cundinamarca. Cabe resaltar que esta es una actividad de alto riesgo, tanto para el ambiente como para los trabajadores envueltos en esto. 
@@ -17,7 +15,7 @@ Las minas constan de diferentes niveles (1, 2,3, etc) y por cada nivel puede hab
 Por lo cual se ve la necesidad de un software, que controle una red de microcontroladores y sensores, para medir las distintas condiciones anteriores. Teniendo en cuenta, ciertos parámetros dados para cada variable ambiental. (Valor mínimo y máximo permisible,
 Variación diaria permitida, Unidad de medida, Precisión en la medida, Frecuencia con la que se debe reportar la información)
 
-## Authors
+## Autores
 
 * **Pablo Alvarado** - [paalvarado10](https://github.com/paalvarado10)
 * **Diego Castro Losada** - [diegocastrolosada](https://github.com/diegocastrolosada)
