@@ -8,9 +8,13 @@ La explotación minera de carbón es la segunda fuente generadora de divisas par
 Por lo cual, para mitigar estos riesgos hay que controlar ciertas variables, para garantizar la seguridad al interior de la mina, estableciendo rigurosos mecanismos de control, orientados a la supervisión de variables ambientales. Tales como: Temperatura, CO2, Ruido y Luminosidad.
 
 Las minas constan de diferentes niveles (1, 2,3, etc) y por cada nivel puede haber cero o muchas áreas físicas. Las cuales están divididas en:
-* Frente de trabajo
-* Vía de traslado 
-* Zona de almacenamiento
+* Frente de trabajo.
+* Vía de traslado.
+* Zona de almacenamiento.
+
+Por lo cual se ve la necesidad de un software, que controle una red de microcontroladores y sensores, para medir las distintas condiciones anteriores. Teniendo en cuenta, ciertos parámetros dados para cada variable ambiental. (Valor mínimo y máximo permisible,
+Variación diaria permitida, Unidad de medida, Precisión en la medida, Frecuencia con la que se debe reportar la información)
+
 
 ### Prerequisites
 
