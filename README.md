@@ -4,7 +4,9 @@
 One Paragraph of project description goes here
 # Project Description
 La explotación minera de carbón es la segunda fuente generadora de divisas para Colombia, aunque este sector ha sido liderado por el departamento de la costa atlántica, se evidencia un fuerte crecimiento en los departamentos de Boyacá y Cundinamarca. Cabe resaltar que esta es una actividad de alto riesgo, tanto para el ambiente como para los trabajadores envueltos en esto. 
+
 Por lo cual, para mitigar estos riesgos hay que controlar ciertas variables, para garantizar la seguridad al interior de la mina, estableciendo rigurosos mecanismos de control, orientados a la supervisión de variables ambientales. Tales como: Temperatura, CO2, Ruido y Luminosidad.
+
 Las minas constan de diferentes niveles (1, 2,3, etc) y por cada nivel puede haber cero o muchas áreas físicas. Las cuales están divididas en:
 * Frente de trabajo
 * Vía de traslado 
