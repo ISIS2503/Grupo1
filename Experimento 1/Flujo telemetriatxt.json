@@ -1,0 +1,205 @@
+[
+    {
+        "id": "2c337ae9.45d1c6",
+        "type": "serial in",
+        "z": "2421f3bf.80077c",
+        "name": "Microcontroller input",
+        "serial": "365e6ebd.a1c312",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "f82f2c00.69c7d",
+                "8b26405e.5c8fe"
+            ]
+        ]
+    },
+    {
+        "id": "f82f2c00.69c7d",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "Raw input",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 340,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8b26405e.5c8fe",
+        "type": "function",
+        "z": "2421f3bf.80077c",
+        "name": "Formatting",
+        "func": "var res = {};\n\n\ntempString = msg.payload;\ntempArray = tempString.split(\"-\");\nres.topic = \"measurements\";\nres.payload = {};\n\nres.payload = {\"temperatura\":parseFloat(tempArray[0]),\"ruido\":parseFloat(tempArray[1]),\"gases\":parseFloat(tempArray[2]),\"iluminacion\":parseFloat(tempArray[3])};\n\nreturn res;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 160,
+        "wires": [
+            [
+                "3fefb511.132c3a",
+                "ad22e2fe.0765e"
+            ]
+        ]
+    },
+    {
+        "id": "3fefb511.132c3a",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "After formatting",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 580,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "843b63d0.746bd",
+        "type": "inject",
+        "z": "2421f3bf.80077c",
+        "name": "Sample time",
+        "topic": "sampleTime",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "3e966a60.6fe6d6",
+                "e60021a6.ea7ae"
+            ]
+        ]
+    },
+    {
+        "id": "3e966a60.6fe6d6",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "Raw time",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 340,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e60021a6.ea7ae",
+        "type": "function",
+        "z": "2421f3bf.80077c",
+        "name": "Format time",
+        "func": "var res = {};\n\nres.payload = new Date(msg.payload);\nres.topic = msg.topic;\n\nreturn res;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 280,
+        "wires": [
+            [
+                "cc949a4f.aee7c8",
+                "ad22e2fe.0765e"
+            ]
+        ]
+    },
+    {
+        "id": "ad22e2fe.0765e",
+        "type": "function",
+        "z": "2421f3bf.80077c",
+        "name": "Merge messages",
+        "func": "context.data = context.data || {};\n\nswitch (msg.topic) {\n    case \"sampleTime\":\n        context.data.sampletime = msg.payload;\n        msg = null;\n        break;\n    case \"measurements\":\n        context.data.measurements = msg.payload;\n        msg = null;\n        break;\n        \n    default:\n        msg = null;\n    break;\n}\n\nif(context.data.sampletime != null && context.data.measurements != null) {\nres = {};\n    res.payload = JSON.stringify(context.data);\n    res.topic = \"measurements\"\n    context.data = null;\nreturn res;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 590,
+        "y": 220,
+        "wires": [
+            [
+                "6f1a11ae.b9045",
+                "f18e85d.f1b0a78"
+            ]
+        ]
+    },
+    {
+        "id": "6f1a11ae.b9045",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "After merge",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 830,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f18e85d.f1b0a78",
+        "type": "json",
+        "z": "2421f3bf.80077c",
+        "name": "",
+        "pretty": false,
+        "x": 810,
+        "y": 220,
+        "wires": [
+            [
+                "51cb4726.28a868"
+            ]
+        ]
+    },
+    {
+        "id": "51cb4726.28a868",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "Json to console",
+        "active": false,
+        "console": "true",
+        "complete": "payload",
+        "x": 1030,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e719ccf6.43ca9",
+        "type": "inject",
+        "z": "2421f3bf.80077c",
+        "name": "TEST NODE",
+        "topic": "",
+        "payload": "23.3-83.2-50.21-150.54",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc949a4f.aee7c8",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "After formatting",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 580,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "365e6ebd.a1c312",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/cu.usbserial-A100DOBD",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    }
+]
