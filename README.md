@@ -18,11 +18,11 @@ Variación diaria permitida, Unidad de medida, Precisión en la medida, Frecuenc
 ## Autores
 |Nombre| Usuario |Correo|
 -------|---------|---------|
-|Pablo Alvarado|[paalvarado10](https://github.com/paalvarado10)||
-|Diego Castro Losada|[diegocastrolosada](https://github.com/diegocastrolosada)||
-|James Lake|[james]()||
+|Pablo Alvarado|[paalvarado10](https://github.com/paalvarado10)|pa.alvarado10@uniandes.edu.co|
+|Diego Castro Losada|[diegocastrolosada](https://github.com/diegocastrolosada)|df.castro12@uniandes.edu.co|
+|James Lake|[james]()|jh.lake@uniandes.edu.co|
 |Pedro Salazar|[p-salazar12](https://github.com/p-salazar12)||
-|Juan Sebastian Sosa|[jssosa10](https://github.com/jssosa10)||
+|Juan Sebastian Sosa|[jssosa10](https://github.com/jssosa10)|js.sosa10@uniandes.edu.co|
 
 
 
