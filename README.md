@@ -19,7 +19,7 @@ Variación diaria permitida, Unidad de medida, Precisión en la medida, Frecuenc
 
 * **Pablo Alvarado** - [paalvarado10](https://github.com/paalvarado10)
 * **Diego Castro Losada** - [diegocastrolosada](https://github.com/diegocastrolosada)
-* **James Lake** - [james](https://github.com/jssosa10)
+* **James Lake** - [james]()
 * **Pedro Salazar** - [p-salazar12](https://github.com/p-salazar12)
 * **Juan Sebastian Sosa** - [jssosa10](https://github.com/jssosa10)
 
