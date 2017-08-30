@@ -1,7 +1,9 @@
 # Grupo 1 (Minerales Andinos)
+
 # Project Title
 
-One Paragraph of project description goes here
+MONITOREO Y CONTROL DE LA CALIDAD DE VARIABLES AMBIENTALES EN MINAS
+
 # Project Description
 La explotación minera de carbón es la segunda fuente generadora de divisas para Colombia, aunque este sector ha sido liderado por el departamento de la costa atlántica, se evidencia un fuerte crecimiento en los departamentos de Boyacá y Cundinamarca. Cabe resaltar que esta es una actividad de alto riesgo, tanto para el ambiente como para los trabajadores envueltos en esto. 
 
@@ -14,54 +16,6 @@ Las minas constan de diferentes niveles (1, 2,3, etc) y por cada nivel puede hab
 
 Por lo cual se ve la necesidad de un software, que controle una red de microcontroladores y sensores, para medir las distintas condiciones anteriores. Teniendo en cuenta, ciertos parámetros dados para cada variable ambiental. (Valor mínimo y máximo permisible,
 Variación diaria permitida, Unidad de medida, Precisión en la medida, Frecuencia con la que se debe reportar la información)
-
-
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
 
 ## Authors
 
