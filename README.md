@@ -1,4 +1,4 @@
-# Grupo 1 (Los Minerales)
+# Grupo 1 (Minerales Andinos)
 # Project Title
 
 One Paragraph of project description goes here
