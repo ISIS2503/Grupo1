@@ -1,5 +1,12 @@
 [
     {
+        "id": "2421f3bf.80077c",
+        "type": "tab",
+        "label": "Telemetry Flow Experimento",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "2c337ae9.45d1c6",
         "type": "serial in",
         "z": "2421f3bf.80077c",
@@ -9,8 +16,8 @@
         "y": 160,
         "wires": [
             [
-                "f82f2c00.69c7d",
-                "8b26405e.5c8fe"
+                "8b26405e.5c8fe",
+                "f82f2c00.69c7d"
             ]
         ]
     },
@@ -63,7 +70,7 @@
         "topic": "sampleTime",
         "payload": "",
         "payloadType": "date",
-        "repeat": "1",
+        "repeat": "60",
         "crontab": "",
         "once": false,
         "x": 120,
