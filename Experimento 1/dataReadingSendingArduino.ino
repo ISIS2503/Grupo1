@@ -2,6 +2,9 @@
 #include <DHT11.h>
 #include <SparkFunTSL2561.h>
 #include <Wire.h>
+//Código de calibración y uso del sensor MQ-7 tomado de: https://forum.arduino.cc/index.php?topic=465066.0
+//Código manejo sensor DHT 11 basado en el presentado: http://www.prometec.net/sensores-dht11/
+//Código manejo sensor TSL basdo en el presentado en los ejemplos de la libreria TSL2561 sparkfun 
 /********************************* MQ-7 Gas Sensor *********************************/
 
 /************************Hardware Related Macros************************************/
