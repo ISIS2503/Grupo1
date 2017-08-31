@@ -179,7 +179,7 @@ unsigned int ms;
    Serial.print(lux);
    Serial.println("");
 
-   delay(1000);
+   delay(60000);
 
  }
  /****************** MQResistanceCalculation ****************************************
