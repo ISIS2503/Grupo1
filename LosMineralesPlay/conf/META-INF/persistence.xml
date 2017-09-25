@@ -3,12 +3,12 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="cassandra_pu">
         <provider>com.impetus.kundera.KunderaPersistence</provider>
-        <class>model.User</class>
+        <class>models.UserEntity</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="kundera.nodes" value="localhost"/>
             <property name="kundera.port" value="9160"/>
-            <property name="kundera.keyspace" value="KunderaExamples"/>
+            <property name="kundera.keyspace" value="LosMinerales"/>
             <property name="kundera.dialect" value="cassandra"/>
             <property name="kundera.client.lookup.class" value="com.impetus.client.cassandra.thrift.ThriftClientFactory" />
         </properties>
