@@ -1,29 +1,28 @@
 package models;
 
 import javax.persistence._
-import org.apache.commons.configuration.beanutils.BeanFactory
-
+import scala.beans.BeanProperty
 /**
-  * Created by df.castro12 on 24/09/2017.
+f  * Created by df.castro12 on 24/09/2017.
   */
 @Entity
-@Table(name = "users")
+@Table(name = "Users")
 class UserEntity(usr: String,psswrd: Long, mail: String) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @BeanFactory
+  @BeanProperty
   var id: Int = _
 
   @Column(name="username")
-  @BeanFactory
+  @BeanProperty
   var username: String = usr
 
   @Column(name="password")
-  @BeanFactory
+  @BeanProperty
   var password: Long = psswrd
 
   @Column(name="email")
-  @BeanFactory
+  @BeanProperty
   var email: String = mail
 }
