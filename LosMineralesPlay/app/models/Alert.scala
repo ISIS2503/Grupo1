@@ -10,10 +10,11 @@ import scala.beans.BeanProperty
 
 @Entity
 @Table(name = "AlertHistory")
-class AlertEntity(alertTypeP: String, pplace: Long, temp: Double, pppm: Double, lux: Double, decibels: Double, pTimestamp: Date) {
+class Alert(alertTypeP: String, pplace: Long, temp: Double, ppm: Double, lux: Double, decibels: Double, pTimestamp: Date) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @BeanProperty
   var id: Int = _
 
   @Column(name = "alertType")
@@ -30,7 +31,7 @@ class AlertEntity(alertTypeP: String, pplace: Long, temp: Double, pppm: Double, 
 
   @Column(name = "gas")
   @BeanProperty
-  var gas = pppm
+  var gas = ppm
 
   @Column(name = "light")
   @BeanProperty
