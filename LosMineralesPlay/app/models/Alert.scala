@@ -9,7 +9,7 @@ import scala.beans.BeanProperty
   */
 
 @Entity
-@Table(name = "AlertHistory")
+@Table(name = "Users", schema = "LosMinerales@cassandra_pu")
 class Alert(alertTypeP: String, pplace: Long, temp: Double, ppm: Double, lux: Double, decibels: Double, pTimestamp: Date) {
 
   @Id
