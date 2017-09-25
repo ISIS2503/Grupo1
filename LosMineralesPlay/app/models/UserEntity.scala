@@ -1,4 +1,4 @@
-package models;
+package models
 
 import javax.persistence._
 import scala.beans.BeanProperty
