@@ -1,13 +1,14 @@
 package models;
 
-import javax.persistence._;
+import javax.persistence._
+import org.apache.commons.configuration.beanutils.BeanFactory
 
 /**
   * Created by df.castro12 on 24/09/2017.
   */
 @Entity
 @Table(name = "users")
-class UserEntity(id: Int,usr: String,psswrd: Long, email: String) {
+class UserEntity(usr: String,psswrd: Long, mail: String) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,5 +25,5 @@ class UserEntity(id: Int,usr: String,psswrd: Long, email: String) {
 
   @Column(name="email")
   @BeanFactory
-  var email: String = email
+  var email: String = mail
 }
