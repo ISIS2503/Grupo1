@@ -29,12 +29,14 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
     Ok("Measurement at 213423 persisted por persistence unit cassandra_pu")
   }
 
-//  def findTest = Action {
-//    val em = emf.createEntityManager()
-//    val measurement = em.createQuery("SELECT t FROM Measurements WHERE ")
-//
-//  }
+  def findTest = Action {
+    val em = emf.createEntityManager()
+    val measurement = em.createQuery("SELECT t FROM Measurements WHERE '" + 213423 + "'", classOf[Measurement]).getSingleResult
+    em.close()
+    Ok("Found measurement in database at the following location: " +  measurement.location)
+  }
 
+  
 
 
 }
