@@ -7,8 +7,8 @@ import java.util.Date
 import scala.beans.BeanProperty
 
 @Entity
-@Table(name = "Readings", schema = "LosMinerales@cassandra_pu")
-class Probe(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: Date ) {
+@Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
+class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: Date ) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
