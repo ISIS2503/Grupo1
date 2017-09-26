@@ -51,7 +51,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     return Ok("Found User in database with the following details: " + printUser(user))
   }
 
-  def update: Result = {
+  def updateTest: Result = {
     val em: EntityManager = emf.createEntityManager()
     var user: User = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
     user.setEmail("CAMBIEELMAIL@HOLA.COM ")
@@ -62,14 +62,13 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
 
   def delete(user: User): Result = {
     val em = emf.createEntityManager()
-    var user1 = user
+    val user1 = user
     em.remove(user1)
-    user1 = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
     return Ok("Record deleted: " + printUser(user))
   }
 
   def printUser(user: User): String = {
     if (user == null) return "Record not found"
-    return "\n------------------------------" + "\nuser ID: " + user.id + "\nname: " + user.username + "\npassword: " + user.password + "\nemail: " + user.email
+    return "\n------------------------------" + "\nUser ID: " + user.id + "\nName: " + user.username + "\nPassword: " + user.password + "\nEmail: " + user.email
   }
 }
