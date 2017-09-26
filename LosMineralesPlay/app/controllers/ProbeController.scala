@@ -29,9 +29,6 @@ class ProbeController @Inject()(cc: ControllerComponents) extends AbstractContro
     Ok("Probe at 213423 persisted por persistence unit cassandra_pu")
   }
 
-  def findTest: Result = {
-    
-  }
 
 
 
