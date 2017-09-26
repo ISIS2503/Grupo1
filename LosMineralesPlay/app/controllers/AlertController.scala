@@ -30,5 +30,4 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
     return Ok("Found Alert in database with the following location: " +  alert.location)
   }
 
-
 }
