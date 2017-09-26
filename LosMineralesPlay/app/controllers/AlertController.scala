@@ -15,7 +15,7 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 
-  def persist: Result = {
+  def persistTest: Result = {
     val em: EntityManager = emf.createEntityManager()
     val alert: Alert = new Alert("OUT OF RANGE",23243242, 2.2, 2.2, 2.2, 2.2, new Date)
     em.persist(alert)
@@ -23,11 +23,28 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
     return Ok("Out of range alert at 23243242 persisted for persistence unit cassandra_pu")
   }
 
-  def find: Result = {
+  def persist(alert: Alert): Result = {
+    val em: EntityManager = emf.createEntityManager()
+    em.persist(alert)
+    em.close()
+    return Ok("Out of range alert at " + alert.location + " persisted for persistence unit cassandra_pu")
+  }
+
+  def findTest: Result = {
     val em: EntityManager = emf.createEntityManager()
     val alert: Alert = em.createQuery("SELECT t FROM Alerts WHERE location = 23243242", classOf[Alert]).getSingleResult
     em.close()
     return Ok("Found Alert in database with the following location: " +  alert.location)
   }
+
+  def findByTimestamp(date: Date): Result = {
+    val em: EntityManager = emf.createEntityManager()
+    val alert: Alert = em.createQuery("SELECT t FROM Alerts WHERE timestamp = '" + date + "'", classOf[Alert]).getSingleResult
+    em.close()
+    return Ok("Found Alert in database with the following timestamp: " +  alert.timestamp)
+  }
+
+
+
 
 }
