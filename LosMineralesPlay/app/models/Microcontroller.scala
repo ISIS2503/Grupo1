@@ -1,35 +1,41 @@
 package models;
 
 import javax.persistence._
-import org.apache.commons.configuration.beanutils.BeanFactory
+
 import java.util.Date
 
+import scala.beans.BeanProperty
+
 @Entity
-@Table(name = "microcontroller")
-class Microcontroller(temp: double, partsPerM: double, lux: double, dec: double, time: Date ) {
+@Table(name = "Readings", schema = "LosMinerales@cassandra_pu")
+class Probe(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: Date ) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @BeanFactory
+  @BeanProperty
   var id: Int = _
 
-  @Column(name="temperture")
-  @BeanFactory
-  var temperture: double = temp
+  @Column(name="location")
+  @BeanProperty
+  var location: Long = plocation
+
+  @Column(name="temperature")
+  @BeanProperty
+  var temperature: Double = temp
 
   @Column(name="gas")
-  @BeanFactory
-  var gas: double = ppm
+  @BeanProperty
+  var gas: Double = partsPerM
 
   @Column(name="light")
-  @BeanFactory
-  var light: double = lux
+  @BeanProperty
+  var light: Double = lux
 
   @Column(name="sound")
-  @BeanFactory
-  var sound: double = dec
+  @BeanProperty
+  var sound: Double = dec
 
-  @Column(name="timestap")
-  @BeanFactory
-  var timestap: Date = time
+  @Column(name="timestamp")
+  @BeanProperty
+  var timestamp: Date = time
 }
