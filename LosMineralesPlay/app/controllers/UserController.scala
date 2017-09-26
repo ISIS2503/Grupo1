@@ -21,6 +21,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     em.close()
     Ok("user test01 record persisted for persistence unit cassandra_pu")
   }
+
   //Ejemplo uso body
   def sayHello = Action(parse.json) { request =>
     (request.body \ "name").asOpt[String].map { name =>
