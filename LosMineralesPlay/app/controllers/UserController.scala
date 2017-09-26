@@ -27,7 +27,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     val em: EntityManager = emf.createEntityManager()
     val user: User = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
     em.close()
-    return Ok("Found User in database with the following details :" + printUser(user))
+    return Ok("Found User in database with the following details: " + printUser(user))
   }
 
   def update: Result = {
