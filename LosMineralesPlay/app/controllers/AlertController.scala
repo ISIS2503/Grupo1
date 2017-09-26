@@ -14,7 +14,7 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 
-  def persistTest: Result = {
+  def persistTest = Action {
     val em = emf.createEntityManager()
     val alert = new Alert("OUT OF RANGE", 23243242, 2.2, 2.2, 2.2, 2.2, new Date)
     em persist alert
@@ -22,28 +22,28 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
     Ok("Out of range alert at 23243242 persisted for persistence unit cassandra_pu")
   }
 
-  def persist(alert: Alert): Result = {
+  def persist(alert: Alert) = Action {
     val em = emf.createEntityManager()
     em persist alert
     em.close()
     Ok("Out of range alert at " + alert.location + " persisted for persistence unit cassandra_pu")
   }
 
-  def findTest: Result = {
+  def findTest = Action {
     val em = emf.createEntityManager()
     val alert = em.createQuery("SELECT t FROM Alerts WHERE location = 23243242", classOf[Alert]).getSingleResult
     em.close()
     Ok("Found Alert in database with the following location: " + alert.location)
   }
 
-  def findByTimestamp(date: Date): Result = {
+  def findByTimestamp(date: Date) = Action {
     val em = emf.createEntityManager()
     val alert = em.createQuery("SELECT t FROM Alerts WHERE timestamp = '" + date + "'", classOf[Alert]).getSingleResult
     em.close()
     Ok("Found Alert in database with the following timestamp: " + alert.timestamp)
   }
 
-  def updateTest: Result = {
+  def updateTest = Action {
     val em = emf.createEntityManager()
     var alert = em.createQuery("SELECT t FROM Alerts WHERE location = 23243242", classOf[Alert]).getSingleResult
     alert.setGas(9999)
@@ -52,7 +52,7 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
     Ok("Record updated: " + printAlert(alert))
   }
 
-  def delete(alert: Alert): Result = {
+  def delete(alert: Alert) = Action {
     val em = emf.createEntityManager()
     val alert1 = alert
     em remove alert1

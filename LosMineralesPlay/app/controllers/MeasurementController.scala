@@ -14,7 +14,7 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 
-  def persistTest: Result = {
+  def persistTest = Action {
     val em = emf.createEntityManager()
     val measurement = new Measurement(213423, 323.32, 32.32, 323.32, 323.32, new Date())
     em persist measurement
@@ -22,7 +22,7 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
     Ok("Measurement at 213423 persisted por persistence unit cassandra_pu")
   }
 
-  def Persist(measurement: Measurement): Result = {
+  def Persist(measurement: Measurement) = Action {
     val em = emf.createEntityManager()
     em persist measurement
     em.close

@@ -14,60 +14,60 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 
-  def persistTest: Result = {
+  def persistTest = Action {
     val em: EntityManager = emf.createEntityManager()
     val user: User = new User("test01", 32323, "test@test.com")
     em.persist(user)
     em.close()
-    return Ok("user test01 record persisted for persistence unit cassandra_pu")
+    Ok("user test01 record persisted for persistence unit cassandra_pu")
   }
 
-  def persist(user: User): Result = {
+  def persist(user: User) = Action {
     val em: EntityManager = emf.createEntityManager()
     em.persist(user)
     em.close()
-    return Ok("user" + user.username + "record persisted for persistence unit cassandra_pu")
+    Ok("user" + user.username + "record persisted for persistence unit cassandra_pu")
   }
 
-  def findTest: Result = {
+  def findTest = Action {
     val em: EntityManager = emf.createEntityManager()
     val user: User = em.createQuery("SELECT t FROM Users WHERE username = 'test01'", classOf[User]).getSingleResult
     em.close()
-    return Ok("Found User in database with the following details: " + printUser(user))
+    Ok("Found User in database with the following details: " + printUser(user))
   }
 
-  def findById(id: Int): Result = {
+  def findById(id: Int) = Action {
     val em: EntityManager = emf.createEntityManager()
     val user: User = em.find(classOf[User], id)
     em.close()
-    return Ok("Found User in database with the following details: " + printUser(user))
+    Ok("Found User in database with the following details: " + printUser(user))
   }
 
-  def findByUsername(username: String): Result = {
+  def findByUsername(username: String) = Action {
     val em: EntityManager = emf.createEntityManager()
     val user: User = em.createQuery("SELECT t FROM Users WHERE username = '" + username + "'", classOf[User]).getSingleResult
     em.close()
-    return Ok("Found User in database with the following details: " + printUser(user))
+    Ok("Found User in database with the following details: " + printUser(user))
   }
 
-  def updateTest: Result = {
-    val em: EntityManager = emf.createEntityManager()
+  def updateTest = Action {
+  val em: EntityManager = emf.createEntityManager()
     var user: User = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
     user.setEmail("CAMBIEELMAIL@HOLA.COM ")
     em.merge(user)
     user = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
-    return Ok("Record updated: " + printUser(user))
+    Ok("Record updated: " + printUser(user))
   }
 
-  def delete(user: User): Result = {
+  def delete(user: User) = Action {
     val em = emf.createEntityManager()
     val user1 = user
     em.remove(user1)
-    return Ok("Record deleted: " + printUser(user))
+    Ok("Record deleted: " + printUser(user))
   }
 
   def printUser(user: User): String = {
     if (user == null) return "Record not found"
-    return "\n------------------------------" + "\nUser ID: " + user.id + "\nName: " + user.username + "\nPassword: " + user.password + "\nEmail: " + user.email
+    "\n------------------------------" + "\nUser ID: " + user.id + "\nName: " + user.username + "\nPassword: " + user.password + "\nEmail: " + user.email
   }
 }
