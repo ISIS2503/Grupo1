@@ -2,7 +2,6 @@ package controllers
 
 import javax.inject._
 import javax.persistence._
-
 import models.User
 import play.api.mvc._
 
