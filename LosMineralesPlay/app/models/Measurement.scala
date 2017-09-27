@@ -8,7 +8,7 @@ import scala.beans.BeanProperty
 
 @Entity
 @Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
-class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: Date ) {
+class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: String ) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -37,5 +37,5 @@ class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, 
 
   @Column(name="timestamp")
   @BeanProperty
-  var timestamp: Date = time
+  var timestamp: String = time
 }
