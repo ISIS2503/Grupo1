@@ -21,24 +21,20 @@ class User(usr: String, psswrd: Long, mail: String) {
   @BeanProperty
   var id: Int = _
 
-  @Column(name="username")
+  @Column(name = "username")
   @BeanProperty
   var username: String = usr
 
-  @Column(name="password")
+  @Column(name = "password")
   @BeanProperty
   var password: Long = psswrd
 
-  @Column(name="email")
+  @Column(name = "email")
   @BeanProperty
   var email: String = mail
-<<<<<<< HEAD
 
- 
 
-=======
-  def this(){
-    this("",0,"");
+  def this() {
+    this("", 0, "")
   }
->>>>>>> 302428691f5a88619ef3c16247565955d3e16dc0
 }

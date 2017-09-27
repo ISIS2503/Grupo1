@@ -1,7 +1,6 @@
 package models
 
 import javax.persistence._
-import java.util.Date
 import scala.beans.BeanProperty
 
 /**
@@ -10,6 +9,7 @@ import scala.beans.BeanProperty
 
 @Entity
 @Table(name = "Alerts", schema = "LosMinerales@cassandra_pu")
+class Alert(alertTypeP: String, pplace: Int, temp: Double, ppm: Double, lux: Double, decibels: Double, pTimestamp: String) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,7 +43,8 @@ import scala.beans.BeanProperty
   @Column(name = "timestamp")
   @BeanProperty
   var timestamp = pTimestamp
-  def this(){
-    this("",0,0.0,0.0,0.0,0.0,"")
+
+  def this() {
+    this("", 0, 0.0, 0.0, 0.0, 0.0, "")
   }
 }

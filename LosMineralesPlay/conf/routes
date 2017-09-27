@@ -14,18 +14,18 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 #POSTS
 #ejemplo uso body
-POST     /hello                      controllers.UserController.sayHello
+#POST     /hello                      controllers.UserController.sayHello
 
 #Persist neasurement
-POST     /measurement                 controllers.MeasurementController.persist
+#POST     /measurement                 controllers.MeasurementController.persist
 
 
 ###USER###
 # Persist Operation
-GET /persist controllers.UserController.persist
+#GET /persist controllers.UserController.persist
 
 # Find Operation
-GET /find controllers.UserController.findTest
+#GET /find controllers.UserController.findTest
 
 # Update Operation
-GET /update controllers.UserController.updateTest
+#GET /update controllers.UserController.updateTest

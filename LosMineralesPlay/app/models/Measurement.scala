@@ -8,8 +8,7 @@ import scala.beans.BeanProperty
 
 @Entity
 @Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
-class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: String ) {
-
+class Measurement(plocation: Long, temp: Double, partsPerM: Double, lux: Double, dec: Double, time: String) {
 
 
   @Id
@@ -17,31 +16,31 @@ class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, 
   @BeanProperty
   var id: Int = _
 
-  @Column(name="location")
+  @Column(name = "location")
   @BeanProperty
   var location: Long = plocation
 
-  @Column(name="temperature")
+  @Column(name = "temperature")
   @BeanProperty
   var temperature: Double = temp
 
-  @Column(name="gas")
+  @Column(name = "gas")
   @BeanProperty
   var gas: Double = partsPerM
 
-  @Column(name="light")
+  @Column(name = "light")
   @BeanProperty
   var light: Double = lux
 
-  @Column(name="sound")
+  @Column(name = "sound")
   @BeanProperty
   var sound: Double = dec
 
-  @Column(name="timestamp")
+  @Column(name = "timestamp")
   @BeanProperty
   var timestamp: String = time
 
-  def this(){
-    this(0,0.0,0.0,0.0,0.0,"");
+  def this() {
+    this(0, 0.0, 0.0, 0.0, 0.0, "")
   }
 }
