@@ -37,5 +37,8 @@ class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, 
 
   @Column(name="timestamp")
   @BeanProperty
-  var timestamp: String = time
+  var timestamp: String =
+  def this(){
+    this(0,0.0,0.0,0.0,0.0,"");
+  }
 }

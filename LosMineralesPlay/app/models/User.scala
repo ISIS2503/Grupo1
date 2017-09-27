@@ -27,5 +27,7 @@ class User(usr: String, psswrd: Long, mail: String) {
   @Column(name="email")
   @BeanProperty
   var email: String = mail
-
+  def this(){
+    this("",0,"");
+  }
 }
