@@ -15,8 +15,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 #POSTS
 #ejemplo uso body
 POST     /hello                      controllers.UserController.sayHello
-# Persist a new user
-POST     /user                       controllers.UserController.persist
+
 #Persist neasurement
 POST     /measurement                 controllers.MeasurementController.persist
 

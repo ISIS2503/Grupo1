@@ -1,7 +1,9 @@
 package controllers
 
-import javax.inject._
+import javax.ejb.Stateless
+import javax.inject.Inject
 import javax.persistence._
+
 import models.User
 import play.api.mvc._
 import play.api.libs.functional.syntax._
@@ -11,8 +13,12 @@ import play.api.libs.json._
   * Created by df.castro12 on 25/09/2017.
   */
 
-@Singleton
-class UserController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+@Stateless
+class UserController@Inject() (cc: ControllerComponents) extends AbstractController(cc) {
+
+//  def this(){
+//    this()
+//  }
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 

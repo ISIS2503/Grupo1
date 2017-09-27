@@ -11,6 +11,11 @@ import scala.beans.BeanProperty
 @Entity
 @Table(name = "Users", schema = "LosMinerales@cassandra_pu")
 class User(usr: String, psswrd: Long, mail: String) {
+
+  //def this() {
+  //  this
+  //}
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @BeanProperty
@@ -27,5 +32,7 @@ class User(usr: String, psswrd: Long, mail: String) {
   @Column(name="email")
   @BeanProperty
   var email: String = mail
+
+ 
 
 }

@@ -1,17 +1,21 @@
 package controllers
 
-import javax.inject._
+import javax.ejb.Stateless
+import javax.inject.Inject
 import javax.persistence.{EntityManagerFactory, Persistence}
-import java.util.Date
+
 import models.Measurement
-import play.api.mvc.{AbstractController, ControllerComponents, Result}
+import play.api.mvc.{AbstractController, ControllerComponents, DefaultControllerComponents, Result}
 import play.api.libs.functional.syntax._
 import play.api.libs.json._
 /**
   * Created by pedrosalazar on 26/9/17.
   */
-@Singleton
-class MeasurementController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+@Stateless
+class MeasurementController@Inject() (cc: ControllerComponents) extends AbstractController(cc) {
+
+
+
 
   val emf: EntityManagerFactory = Persistence.createEntityManagerFactory("cassandra_pu")
 

@@ -10,6 +10,10 @@ import scala.beans.BeanProperty
 @Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
 class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: String ) {
 
+  def this() {
+    this
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   @BeanProperty
