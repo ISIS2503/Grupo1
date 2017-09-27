@@ -44,10 +44,10 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
   def persist = Action(parse.json) { request =>
     request.body.validate[(String,Long,String)].map { case (username,password,email) =>
       //para hacer pruebas con la base de datos quitar el los comentarion
-      //val em: EntityManager = emf.createEntityManager()
+      val em: EntityManager = emf.createEntityManager()
       val user: User = new User(username, password, email)
-      //em.persist(user)
-      //em.close()
+      em.persist(user)
+      em.close()
       Ok("user " + user.username+" record persisted for persistence unit cassandra_pu")
     }.getOrElse {
       BadRequest("Missing parameters")
@@ -83,6 +83,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     user = em.createQuery("SELECT t FROM Users WHERE name = 'test01'", classOf[User]).getSingleResult
     Ok("Record updated: " + printUser(user))
   }
+
 
   def delete(user: User) = Action {
     val em = emf.createEntityManager()

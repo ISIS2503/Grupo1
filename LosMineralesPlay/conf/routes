@@ -19,3 +19,14 @@ POST     /hello                      controllers.UserController.sayHello
 POST     /user                       controllers.UserController.persist
 #Persist neasurement
 POST     /measurement                 controllers.MeasurementController.persist
+
+
+###USER###
+# Persist Operation
+GET /persist controllers.UserController.persist
+
+# Find Operation
+GET /find controllers.UserController.findTest
+
+# Update Operation
+GET /update controllers.UserController.updateTest
