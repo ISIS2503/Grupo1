@@ -23,6 +23,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     em.close()
     Ok("user test01 record persisted for persistence unit cassandra_pu")
   }
+
   //Ejemplo uso body
   implicit val rds = (
     (__ \ 'name).read[String] and

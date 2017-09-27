@@ -1,13 +1,15 @@
 package models
 
 import javax.persistence._
+
 import scala.beans.BeanProperty
 
 /**
   * Created by df.castro12 on 24/09/2017.
   */
+
 @Entity
-@Table(name = "Users", schema = "LosMinerales@cassandra_pu")
+@Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
 class User(usr: String, psswrd: Long, mail: String) {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
