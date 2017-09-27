@@ -4,6 +4,8 @@ import javax.inject._
 import javax.persistence._
 import models.User
 import play.api.mvc._
+import play.api.libs.functional.syntax._
+import play.api.libs.json._
 
 /**
   * Created by df.castro12 on 25/09/2017.
@@ -22,18 +24,33 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok("user test01 record persisted for persistence unit cassandra_pu")
   }
   //Ejemplo uso body
+  implicit val rds = (
+    (__ \ 'name).read[String] and
+      (__ \ 'lastname).read[String]
+    ) tupled
   def sayHello = Action(parse.json) { request =>
-    (request.body \ "name").asOpt[String].map { name =>
-      Ok("Hello " + name)
+    (request.body.validate[(String,String)].map { case (name,lastname) =>
+      Ok("Hello " + name+","+lastname)
     }.getOrElse {
-      BadRequest("Missing parameter [name]")
-    }
+      BadRequest("Missing parameters")
+    })
   }
-  def persist(user: User) = Action {
-    val em: EntityManager = emf.createEntityManager()
-    em.persist(user)
-    em.close()
-    Ok("user" + user.username + "record persisted for persistence unit cassandra_pu")
+  implicit val readuser = (
+    (__ \ 'username).read[String] and
+      (__ \ 'password).read[Long] and
+      (__ \ 'email).read[String]
+    ) tupled
+  def persist = Action(parse.json) { request =>
+    (request.body.validate[(String,Long,String)].map { case (username,password,email) =>
+      //para hacer pruebas con la base de datos quitar el los comentarion
+      //val em: EntityManager = emf.createEntityManager()
+      val user: User = new User(username, password, email)
+      //em.persist(user)
+      //em.close()
+      Ok("user " + user.username+" record persisted for persistence unit cassandra_pu")
+    }.getOrElse {
+      BadRequest("Missing parameters")
+    })
   }
 
   def findTest = Action {
