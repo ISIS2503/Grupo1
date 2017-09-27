@@ -38,18 +38,19 @@ class UnitSpec extends PlaySpec {
 
   "MeasurementController" should {
     "return a valid result with action" in {
-      val controller = new CountController(stubControllerComponents())
+      val controller = new MeasurementController(stubControllerComponents())
       val result = controller.persistenceTest(FakeRequest())
       contentAsString(result) must be("Measurement at 213423 persisted por persistence unit cassandra_pu")
     }
 
     "return a valid result with action" in {
-      val controller = new CountController(stubControllerComponents())
+      val controller = new MeasurementController(stubControllerComponents())
       val result = controller.findTest(FakeRequest())
       //val m = controller.measurement()
      // contentAsString(result) must contain ("Found measurement in database at the following location:" + m.location)
-      contentAsString(result) must contain ("Found measurement in database at the following location:")
+      contentAsString(result) should contain ("Found measurement in database at the following location:")
     }
   }
+
 
 }
