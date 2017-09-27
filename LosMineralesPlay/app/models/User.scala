@@ -32,7 +32,13 @@ class User(usr: String, psswrd: Long, mail: String) {
   @Column(name="email")
   @BeanProperty
   var email: String = mail
+<<<<<<< HEAD
 
  
 
+=======
+  def this(){
+    this("",0,"");
+  }
+>>>>>>> 302428691f5a88619ef3c16247565955d3e16dc0
 }

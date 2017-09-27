@@ -10,7 +10,6 @@ import scala.beans.BeanProperty
 
 @Entity
 @Table(name = "Alerts", schema = "LosMinerales@cassandra_pu")
-class Alert(alertTypeP: String, pplace: Long, temp: Double, ppm: Double, lux: Double, decibels: Double, pTimestamp: Date) {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -44,4 +43,7 @@ class Alert(alertTypeP: String, pplace: Long, temp: Double, ppm: Double, lux: Do
   @Column(name = "timestamp")
   @BeanProperty
   var timestamp = pTimestamp
+  def this(){
+    this("",0,0.0,0.0,0.0,0.0,"")
+  }
 }
