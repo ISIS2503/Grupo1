@@ -30,11 +30,11 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
       (__ \ 'lastname).read[String]
     ) tupled
   def sayHello = Action(parse.json) { request =>
-    (request.body.validate[(String,String)].map { case (name,lastname) =>
+    request.body.validate[(String,String)].map { case (name,lastname) =>
       Ok("Hello " + name+","+lastname)
     }.getOrElse {
       BadRequest("Missing parameters")
-    })
+    }
   }
   implicit val readuser = (
     (__ \ 'username).read[String] and
@@ -42,7 +42,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
       (__ \ 'email).read[String]
     ) tupled
   def persist = Action(parse.json) { request =>
-    (request.body.validate[(String,Long,String)].map { case (username,password,email) =>
+    request.body.validate[(String,Long,String)].map { case (username,password,email) =>
       //para hacer pruebas con la base de datos quitar el los comentarion
       //val em: EntityManager = emf.createEntityManager()
       val user: User = new User(username, password, email)
@@ -51,7 +51,7 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
       Ok("user " + user.username+" record persisted for persistence unit cassandra_pu")
     }.getOrElse {
       BadRequest("Missing parameters")
-    })
+    }
   }
 
   def findTest = Action {
