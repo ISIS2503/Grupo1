@@ -24,6 +24,13 @@ class UserController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok("user test01 record persisted for persistence unit cassandra_pu")
   }
 
+  def persistTemp(user:User) = Action {
+    val em: EntityManager = emf.createEntityManager()
+    em.persist(user)
+    em.close()
+    Ok("user record persisted for persistence unit cassandra_pu test")
+  }
+
   //Ejemplo uso body
   implicit val rds = (
     (__ \ 'name).read[String] and

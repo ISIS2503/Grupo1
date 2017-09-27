@@ -32,7 +32,7 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
       (__ \ 'timestamp).read[String]
     ) tupled
   def persist = Action(parse.json) { request =>
-    (request.body.validate[(Long,Double,Double,Double,Double,String)].map { case (location,temperature,gas,ligth,sound,timestamp) =>
+    request.body.validate[(Long,Double,Double,Double,Double,String)].map { case (location,temperature,gas,ligth,sound,timestamp) =>
       //para hacer pruebas con la base de datos quitar el los comentarion
       //val em: EntityManager = emf.createEntityManager()
       val mes: Measurement = new Measurement(location,temperature,gas,ligth,sound,timestamp)
@@ -41,14 +41,14 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
       Ok("measurment " + mes.location+";"+mes.timestamp+" record persisted for persistence unit cassandra_pu")
     }.getOrElse {
       BadRequest("Missing parameters")
-    })
+    }
   }
 
-  def findTest = Action {
+  def findByLocation(loc: Int) = Action {
     val em = emf.createEntityManager()
-    val measurement = em.createQuery("SELECT t FROM Measurements WHERE '" + 213423 + "'", classOf[Measurement]).getSingleResult
+    val measurements = em.createQuery("SELECT t FROM Measurements WHERE location = '" + loc + "'", classOf[Measurement]).getResultList
     em.close()
-    Ok("Found measurement in database at the following location: " +  measurement.location)
+    Ok("Found " + measurements.size() + "measurements in database from the following location: " +  loc)
   }
 
   
