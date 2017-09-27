@@ -9,7 +9,7 @@ import scala.beans.BeanProperty
   */
 
 @Entity
-@Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
+@Table(name = "Users", schema = "LosMinerales@cassandra_pu")
 class User(usr: String, psswrd: Long, mail: String) {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
