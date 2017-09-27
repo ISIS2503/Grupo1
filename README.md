@@ -1,6 +1,6 @@
 # Grupo 1: Los Minerales. 
 
-# Monitoreo y control de la calidad de variables ambientales en minas. 
+# Monitoreo y control de variables ambientales en minas. 
 
 # Descripción del proyecto:
 La explotación minera de carbón es la segunda fuente generadora de divisas para Colombia, aunque este sector ha sido liderado por el departamento de la costa atlántica, se evidencia un fuerte crecimiento en los departamentos de Boyacá y Cundinamarca. Cabe resaltar que esta es una actividad de alto riesgo, tanto para el ambiente como para los trabajadores envueltos en esto. 
