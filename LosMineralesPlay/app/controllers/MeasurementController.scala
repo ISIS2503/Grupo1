@@ -36,8 +36,8 @@ class MeasurementController @Inject()(cc: ControllerComponents) extends Abstract
       //para hacer pruebas con la base de datos quitar el los comentarion
       //val em: EntityManager = emf.createEntityManager()
       val mes: Measurement = new Measurement(location,temperature,gas,ligth,sound,timestamp)
-      //em.persist(user)
-      //em.close()
+      //em persist mes
+      //em.close
       Ok("measurment " + mes.location+";"+mes.timestamp+" record persisted for persistence unit cassandra_pu")
     }.getOrElse {
       BadRequest("Missing parameters")
