@@ -16,7 +16,7 @@ class AlertController @Inject()(cc: ControllerComponents) extends AbstractContro
 
   def persistTest = Action {
     val em = emf.createEntityManager()
-    val alert = new Alert("OUT OF RANGE", 23243242, 2.2, 2.2, 2.2, 2.2, new Date)
+    val alert = new Alert("OUT OF RANGE", 23243242, 2.2, 2.2, 2.2, 2.2, "olakeac")
     em persist alert
     em.close()
     Ok("Out of range alert at 23243242 persisted for persistence unit cassandra_pu")

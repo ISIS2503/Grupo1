@@ -10,9 +10,7 @@ import scala.beans.BeanProperty
 @Table(name = "Measurements", schema = "LosMinerales@cassandra_pu")
 class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, dec: Double, time: String ) {
 
-  def this() {
-    this
-  }
+
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,7 +39,8 @@ class Measurement(plocation: Long,temp: Double, partsPerM: Double, lux: Double, 
 
   @Column(name="timestamp")
   @BeanProperty
-  var timestamp: String =
+  var timestamp: String = time
+
   def this(){
     this(0,0.0,0.0,0.0,0.0,"");
   }
