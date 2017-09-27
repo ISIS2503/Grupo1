@@ -10,6 +10,7 @@ GET     /count                      controllers.CountController.count
 GET     /message                    controllers.AsyncController.message
 #ejemplo uso body
 POST     /hello                      controllers.UserController.sayHello
+
 POST     /user                       controllers.UserController.persist
 POST     /measurement                 controllers.MeasurementController.persist
 # Map static resources from the /public folder to the /assets URL path
