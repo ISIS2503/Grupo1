@@ -27,7 +27,7 @@ class AlertController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc: Cont
      * turned into a JsObject using a Writes.)
      */
     request.body.validate[Alert].map { mes =>
-      // `mes` is an instance of the case class `models.Measurement`
+      // `mes` is an instance of the case class `models.Alert`
       collection.flatMap(_.insert(mes)).map { lastError =>
         Created
       }

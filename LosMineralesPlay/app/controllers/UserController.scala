@@ -32,7 +32,7 @@ class UserController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc: Contr
      * turned into a JsObject using a Writes.)
      */
     request.body.validate[User].map { mes =>
-      // `mes` is an instance of the case class `models.Measurement`
+      // `mes` is an instance of the case class `models.User`
       collection.flatMap(_.insert(mes)).map { lastError =>
         Created
       }
