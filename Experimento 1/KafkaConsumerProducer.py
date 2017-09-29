@@ -17,4 +17,4 @@ for message in consumer:
 	gas = msg[3].split(“:”)[1]
 	ilum = msg[4].split(“:”)[1].split(“}”)[0]
 	sendit = “{’location’:’” + location + “‘, ’temperature’:’” + temp + “‘, ‘gas’:’” + gas + “‘, ’light’:’” + ilum + “‘, ‘sound’:’” + noice + “‘, ‘timestamp:’”+ now+”’}”
-	r = requests.post(’172.24.42.34/measurement’, sendit)
+	r = requests.post(’localhost:9000/measurement’, sendit)

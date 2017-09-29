@@ -38,6 +38,12 @@ class UnitSpec extends PlaySpec {
   }
 
 //  "MeasurementController" should {
+//    "return a valid result on action.test" in {
+//      val controller = new MeasurementController(stubControllerComponents())
+//
+//    }
+//  }
+//  "MeasurementController" should {
 //    "return a valid result on action.persistenceTest" in {
 //      val controller = new MeasurementController(stubControllerComponents())
 //      val result = controller.persistTest(FakeRequest())
