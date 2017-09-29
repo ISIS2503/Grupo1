@@ -3,11 +3,11 @@ from kafka import KafkaProducer
 from kafka.errors import KafkaError
 from datetime import datetime
 
-consumer = KafkaConsumer(‘alta.piso1.local1’,
+consumer = KafkaConsumer(‘alta.piso1.area1’,
                          group_id='my-group',
                          bootstrap_servers=['localhost:8090’])
 
-location = 001001
+location = 1001001
 
 for message in consumer:
 	msg = message.split(“,”) 

@@ -1,0 +1,129 @@
+[
+    {
+        "id": "2421f3bf.80077c",
+        "type": "tab",
+        "label": "Telemetry Flow Experimento MQTT ",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7610c915.cfa108",
+        "type": "serial in",
+        "z": "2421f3bf.80077c",
+        "name": "Microcontroller input",
+        "serial": "365e6ebd.a1c312",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "76e12288.95948c",
+                "2049210.80ae8e"
+            ]
+        ]
+    },
+    {
+        "id": "76e12288.95948c",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "Raw input",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 340,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d24a0f7e.3cbf7",
+        "type": "debug",
+        "z": "2421f3bf.80077c",
+        "name": "After formatting",
+        "active": false,
+        "console": "false",
+        "complete": "payload",
+        "x": 580,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "bbfa7f0c.3c735",
+        "type": "inject",
+        "z": "2421f3bf.80077c",
+        "name": "TEST NODE",
+        "topic": "",
+        "payload": "23.3-83.2-50.21-150.54",
+        "payloadType": "str",
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "x": 120,
+        "y": 160,
+        "wires": [
+            [
+                "2049210.80ae8e"
+            ]
+        ]
+    },
+    {
+        "id": "2049210.80ae8e",
+        "type": "function",
+        "z": "2421f3bf.80077c",
+        "name": "Formatting",
+        "func": "var res = {};\n\n\ntempString = msg.payload;\ntempArray = tempString.split(\"-\");\nres.topic = \"measurements\";\nres.payload = {};\n\nres.payload = {\"timestamp\":new Date(),\"temperatura\":parseFloat(tempArray[0]),\"ruido\":parseFloat(tempArray[1]),\"gases\":parseFloat(tempArray[2]),\"iluminacion\":parseFloat(tempArray[3])};\n\nreturn res;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 100,
+        "wires": [
+            [
+                "d24a0f7e.3cbf7",
+                "88cb5296.86518"
+            ]
+        ]
+    },
+    {
+        "id": "88cb5296.86518",
+        "type": "mqtt out",
+        "z": "2421f3bf.80077c",
+        "name": "Mqtt out",
+        "topic": "alta.piso1.area1",
+        "qos": "0",
+        "retain": "false",
+        "broker": "13c1f07f.ebfb3",
+        "x": 560,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "365e6ebd.a1c312",
+        "type": "serial-port",
+        "z": "",
+        "serialport": "/dev/cu.usbmodem1421",
+        "serialbaud": "9600",
+        "databits": "8",
+        "parity": "none",
+        "stopbits": "1",
+        "newline": "\\n",
+        "bin": "false",
+        "out": "char",
+        "addchar": false
+    },
+    {
+        "id": "13c1f07f.ebfb3",
+        "type": "mqtt-broker",
+        "z": "",
+        "broker": "172.24.42.20",
+        "port": "8083",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": ""
+    }
+]
