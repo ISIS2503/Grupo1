@@ -12,7 +12,6 @@ import play.api.libs.json._
   * Created by df.castro12 on 25/09/2017.
   */
 
-@Singleton
 class UserController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
   //  def this(){
