@@ -13,10 +13,11 @@ GET         /message             controllers.AsyncController.message
 GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
 #Test Route
 #GET         /test                controllers.MeasurementController.test
+
+
 #POSTS
 #ejemplo uso body
 #POST     /hello                      controllers.UserController.sayHello
-
-#Persist neasurement
+#Persist measurement
 POST        /measurement         controllers.MeasurementController.createFromJson
 
