@@ -12,7 +12,8 @@ for message in consumer:
 	#print('hola')
 	payload={}
 	msg = message.value.decode("utf-8").split(',')
-	now = msg[0].split(':')[1]
+	time = msg[0]
+	now = msg[0].split(':')[1]+":"+msg[0].split(':')[2]+":"+msg[0].split(':')[3]
 	temp = float(msg[1].split(':')[1])
 	noise = float(msg[2].split(':')[1])
 	gas = float(msg[3].split(':')[1])
