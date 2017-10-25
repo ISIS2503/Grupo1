@@ -21,3 +21,9 @@ GET         /assets/*file        controllers.Assets.versioned(path="/public", fi
 #Persist measurement
 POST        /measurement         controllers.MeasurementController.createFromJson
 
+#Persist Offline Alert
+POST        /offlineAlert        controllers.AlertController.createOfflineAlertFromJson
+POST        /noChangeAlert       controllers.AlertController.createNoChangeAlertFromJson
+POST        /outOfBoundsAlert    controllers.AlertController.createOutOfBoundsAlertFromJson
+GET         /offlineAlert        controllers.AlertController.test
+
