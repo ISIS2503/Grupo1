@@ -14,6 +14,7 @@ import scala.concurrent.Future
 /**
   * Created by pedrosalazar on 26/9/17.
   */
+
 @Singleton
 class MeasurementController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc: ControllerComponents)
   extends AbstractController(cc) with MongoController with ReactiveMongoComponents {
