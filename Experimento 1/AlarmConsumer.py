@@ -23,11 +23,7 @@ def alarmoutsend(prod, typ, min, max, val, mes):
 		prom = sum/10.0
 		if prom<min or prom>max:
 			payload = {}
-<<<<<<< HEAD
 			payload["alert_type"]=2
-=======
-			payload["alert_type"]=1
->>>>>>> 593c539d4def65eb2500bade99e32c40b4ccb173
 			payload["trigger"]=typ
 			payload["maesurement"]=mes
 			prod.send('alarmas', str(payload).encode("utf-8"))
@@ -59,14 +55,7 @@ for message in consumer:
 	payload["light"]=ilum
 	payload["sound"]=noise
 	payload["timestamp"]=now 
-<<<<<<< HEAD
 	alarmoutsend(producer,1,16.1,21.6,temp,payload)
 	alarmoutsend(producer,2,80.0,85.0,noise,payload)
 	alarmoutsend(producer,3,0.0,350.0,gas,payload)
 	alarmoutsend(producer,4,100.0,500.0,ilum,payload)
-=======
-	alarmsend(producer,1,100.0,1000.0,temp,payload)
-
-
-
->>>>>>> 593c539d4def65eb2500bade99e32c40b4ccb173
