@@ -9,7 +9,7 @@ def alarmsend(prod, typ, min, max, val, mes):
 		else:
 			print("enviando")
 			payload = {}
-			payload["alarm_type"]=0
+			payload["alert_type"]=1
 			payload["trigger"]=typ
 			payload["measurement"]=mes
 			prod.send('alarmas', str(payload).encode("utf-8"))
@@ -40,7 +40,7 @@ for message in consumer:
 	payload["light"]=ilum
 	payload["sound"]=noise
 	payload["timestamp"]=now 
-	alarmsend(producer,0,100.0,1000.0,temp,payload)
+	alarmsend(producer,1,100.0,1000.0,temp,payload)
 
 
 
