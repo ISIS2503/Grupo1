@@ -1,19 +1,34 @@
 from kafka import KafkaConsumer
 from kafka import KafkaProducer
 import datetime
+import redis
 import requests
-def alarmsend(prod, typ, min, max, val, mes):
-	if val<min or val>max:
-		if False:
-			print("hola")
-		else:
-			print("enviando")
+def alarmoutsend(prod, typ, min, max, val, mes):
+#prod.send('alarmas', str(payload).encode("utf-8"))
+	print("creando alarma")
+	cache = redis.Redis(host='localhost',port=8090,db=0)
+	loc = mes["location"]
+	lista = str(location)+str(typ)
+	longi = cache.llen(lista)
+	if longi<=9:
+		print("not enough data")
+		cache.rpush(lista,val)
+	else:
+		print("calculando")
+		sum = 0.0
+		cache.lpop(lista)
+		cache.rpush(lista,val)
+		for j in range(0,longi):
+			sum = sum + float(cache.lindex(lista,j).decode("utf-8"))
+		prom = sum/10.0
+		if prom<min or prom>max:
 			payload = {}
-			payload["alarm_type"]=0
+			payload["alert_type"]=2
 			payload["trigger"]=typ
-			payload["measurement"]=mes
+			payload["maesurement"]=mes
 			prod.send('alarmas', str(payload).encode("utf-8"))
-			print("enviado")
+			print("alarma enviada")
+
 print("creando")
 consumer = KafkaConsumer('alta.piso1.area1',
                          group_id='my-group',
@@ -40,7 +55,7 @@ for message in consumer:
 	payload["light"]=ilum
 	payload["sound"]=noise
 	payload["timestamp"]=now 
-	alarmsend(producer,0,100.0,1000.0,temp,payload)
-
-
-
+	alarmoutsend(producer,1,16.1,21.6,temp,payload)
+	alarmoutsend(producer,2,80.0,85.0,noise,payload)
+	alarmoutsend(producer,3,0.0,350.0,gas,payload)
+	alarmoutsend(producer,4,100.0,500.0,ilum,payload)
