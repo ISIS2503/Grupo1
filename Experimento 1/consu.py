@@ -21,8 +21,18 @@ for message in consumer:
 		ilum = float(msg[5].split(':')[1])
 		noise = float(msg[6].split(':')[1])
 		now = msg[7].split(':')[1]
-		if alarm == 1:
-			mensaje = "Se detecto Alerta, sensor fuera de linea" + ", en la LOCACION " + str(location) + ", con TEMPERATURA " + str(temp) + "grados C, con GAS " + str(gas) + " ppm, con LUMINOSIDAD " + str(ilum) + " lux, RUIDO " + str(noise) + " decibeles" + " Fecha de la alarma " + str(now)
+		print(str(alarm) + "TIPO DE ALARMA")
+		if alarm == 3:
+			causa = ""
+			if trigger == 1:
+				causa = "Temperatura"
+			elif trigger == 2:
+				causa = "Ruido"
+			elif trigger == 3:
+				causa = "Gases"
+			else :
+				causa = "Luminocidad"
+			mensaje = "Se detecto Alerta, actuador ineficiente, no se ha logrado corregir la alerta en la variable "+ causa + ", en la LOCACION " + str(location) + ", con TEMPERATURA " + str(temp) + "grados C, con GAS " + str(gas) + " ppm, con LUMINOSIDAD " + str(ilum) + " lux, RUIDO " + str(noise) + " decibeles" + " Fecha de la alarma " + str(now)
 			fromaddr = 'grupo1losmineros1@gmail.com'
 			toaddrs  = 'pabloalvaradoceron@gmail.com'
 			# Datos
@@ -45,7 +55,7 @@ for message in consumer:
 				causa = "Gases"
 			else :
 				causa = "Luminocidad"
-			mensaje = "Se detecto Alerta, de medicion fuera de linea en la variable "+ causa + ", en la LOCACION " + str(location) + ", con TEMPERATURA " + str(temp) + "grados C, con GAS " + str(gas) + " ppm, con LUMINOSIDAD " + str(ilum) + " lux, RUIDO " + str(noise) + " decibeles" + " Fecha de la alarma " + str(now) 
+			mensaje = "Se detecto Alerta, de medicion fuera de rango en la variable "+ causa + ", en la LOCACION " + str(location) + ", con TEMPERATURA " + str(temp) + "grados C, con GAS " + str(gas) + " ppm, con LUMINOSIDAD " + str(ilum) + " lux, RUIDO " + str(noise) + " decibeles" + " Fecha de la alarma " + str(now) 
 			fromaddr = 'grupo1losmineros1@gmail.com'
 			toaddrs  = 'pabloalvaradoceron@gmail.com'
 			# Datos
