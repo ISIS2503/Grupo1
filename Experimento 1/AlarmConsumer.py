@@ -3,12 +3,27 @@ from kafka import KafkaProducer
 import datetime
 import redis
 import requests
+def alarminefficient(prod,typ,mes):
+	cache = redis.Redis(host='localhost',port=8090,db=0)
+	loc = str(mes["location"])
+	cc = loc+str(typ)+"count"
+	num = int(cache.get(cc).decode("utf-8"))
+	print(num)
+	if num >20:
+		print("too many")
+		payload = {}
+		payload["alert_type"]=3
+		payload["trigger"]=typ
+		payload["maesurement"]=mes
+		prod.send('alarmas', str(payload).encode("utf-8"))
+
 def alarmoutsend(prod, typ, min, max, val, mes):
 #prod.send('alarmas', str(payload).encode("utf-8"))
 	print("creando alarma")
 	cache = redis.Redis(host='localhost',port=8090,db=0)
-	loc = mes["location"]
-	lista = str(location)+str(typ)
+	loc = str(mes["location"])
+	lista = loc+str(typ)
+	cc = lista+"count"
 	longi = cache.llen(lista)
 	if longi<=9:
 		print("not enough data")
@@ -27,7 +42,11 @@ def alarmoutsend(prod, typ, min, max, val, mes):
 			payload["trigger"]=typ
 			payload["maesurement"]=mes
 			prod.send('alarmas', str(payload).encode("utf-8"))
+			cache.incr(cc)
+			print(cache.get(cc).decode("utf-8"))
 			print("alarma enviada")
+		else:
+			cache.set(cc,0)
 
 print("creando")
 consumer = KafkaConsumer('alta.piso1.area1',
@@ -56,6 +75,10 @@ for message in consumer:
 	payload["sound"]=noise
 	payload["timestamp"]=now 
 	alarmoutsend(producer,1,16.1,21.6,temp,payload)
+	alarminefficient(producer,1,payload)
 	alarmoutsend(producer,2,80.0,85.0,noise,payload)
+	alarminefficient(producer,2,payload)
 	alarmoutsend(producer,3,0.0,350.0,gas,payload)
+	alarminefficient(producer,3,payload)
 	alarmoutsend(producer,4,100.0,500.0,ilum,payload)
+	alarminefficient(producer,4,payload)
