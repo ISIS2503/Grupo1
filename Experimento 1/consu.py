@@ -4,8 +4,11 @@ import requests
 import smtplib
 
 consumer = KafkaConsumer('alarmas',
-                         group_id='my-group',
-                         bootstrap_servers=['172.24.42.20:8090'])
+						bootstrap_servers=['172.24.42.20:8090'],
+						sasl_plain_username='alarmas',
+						sasl_plain_password='alarmas',
+						security_protocol='SASL_PLAINTEXT',
+						sasl_mechanism='PLAIN')
 
 location = 1001001
 print("Consumidor de alertas conectado con Kafka")
