@@ -2,9 +2,12 @@ from kafka import KafkaConsumer
 import datetime
 import requests
 print("creando")
-consumer = KafkaConsumer('alta.piso1.area1',
-                         group_id='my-group',
-                         bootstrap_servers=['172.24.42.20:8090'])
+consumer = KafkaConsumer('data',
+                         bootstrap_servers=['172.24.42.20:8090'],
+                         sasl_plain_username = 'data',
+                         sasl_plain_password = 'data',
+                         security_protocol = 'SASL_PLAINTEXT',
+                         sasl_mechanism = 'PLAIN')
 print("saliendo")
 location = 1001001
 
