@@ -4,13 +4,13 @@
 
 #GETS
 # An example controller showing a sample home page
-GET         /                        controllers.HomeController.index
+GET         /                          controllers.HomeController.index
 # An example controller showing how to use dependency injection
-GET         /count                   controllers.CountController.count
+GET         /count                     controllers.CountController.count
 # An example controller showing how to write asynchronous code
-GET         /message                 controllers.AsyncController.message
+GET         /message                   controllers.AsyncController.message
 # Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file            controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file              controllers.Assets.versioned(path="/public", file: Asset)
 #Test Route
 #GET         /test                controllers.MeasurementController.test
 
@@ -18,12 +18,19 @@ GET         /assets/*file            controllers.Assets.versioned(path="/public"
 #POSTS
 #ejemplo uso body
 #POST     /hello                      controllers.UserController.sayHello
-#Persist measurement
-POST        /measurement             controllers.MeasurementController.createFromJson
 
-#Persist Offline Alert
-POST        /offlineAlert            controllers.AlertController.createOfflineAlertFromJson
-POST        /noChangeAlert           controllers.AlertController.createNoChangeAlertFromJson
-POST        /outOfBoundsAlert        controllers.AlertController.createOutOfBoundsAlertFromJson
-GET         /offlineAlert            controllers.AlertController.test
+
+#Persist measurement
+POST        /measurement               controllers.MeasurementController.createFromJson
+
+#Persist Alerts
+POST        /offlineAlert              controllers.AlertController.createOfflineAlertFromJson
+POST        /noChangeAlert             controllers.AlertController.createNoChangeAlertFromJson
+POST        /outOfBoundsAlert          controllers.AlertController.createOutOfBoundsAlertFromJson
+
+#Getters
+GET         /offlineAlert/*date        controllers.AlertController.offlineTest(date: String)
+GET         /noChangeAlert/*date             controllers.AlertController.noChangeTest(date: String)
+GET         /outOfBoundsAlert/*date          controllers.AlertController.outOfBoundsTest(date: String)
+
 
