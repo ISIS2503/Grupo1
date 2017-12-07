@@ -1,0 +1,39 @@
+<!--
+ALERTA CON PAGINACION DEL LADO DEL CLIENTE
+-->
+<div>
+    <h2 class="form-title">Historial de alertas</h2>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <!-- <div class="panel-heading">Competitors</div> -->
+        <div class="panel-heading">Historial de Alertas</div>
+        <!-- Table -->
+        <table ng-if="totalR.length" datatable-setup class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Tipo Alerta</th>
+                    <th>Variable Causante</th>
+                    <th>Ubicación</th>
+                    <th>Temperatura</th>
+                    <th>Gases</th>
+                    <th>Iluminación</th>
+                    <th>Ruido</th>
+                    <th>TimeStamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="alert in totalR | orderBy: 'location'">
+                    <td>{{alert.alert_type}}</td>
+                    <td>{{alert.trigger}}</td>
+                    <td>{{alert.location}}</td>
+                    <td>{{alert.temperature}}</td>
+                    <td>{{alert.gas}}</td>
+                    <td>{{alert.light}}</td>
+                    <td>{{alert.sound}}</td>
+                    <td>{{alert.timestamp}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="measurements">
+    <head>
+        <title>Historial Mediciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+ 
+    <body ng-controller="MyCtrl" style="padding-top: 80px;">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/measurements.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css/bootstrap.min.css">
+        <link data-require="datatables@1.9.4" data-semver="1.9.4" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" />
+        <link data-require="datatables@1.9.4" data-semver="1.9.4" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" />
+        <script data-require="datatables@1.9.4" data-semver="1.9.4" src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js"></script>
+        <toolbar></toolbar>
+        <div class="container theme-showcase" role="main">
+ 
+            <div class="row featurette">
+                <div class="col-md-5">
+                    <img src="https://sites.google.com/site/quimicapara1erodebachillerato/_/rsrc/1364838310683/medicion-y-cifras-significativas/medida.jpg?height=224&width=320" class="img-responsive" alt="500x500" data-holder-rendered="true">
+                </div>
+                <div class="col-md-7">
+                    <h2>Grupo 1 Los minerales</h2>
+                    <p class="lead">
+                        Bienvenido al historial de mediciones de la mina                  </p>
+                </div>
+            </div>
+            <hr>
+            
+           <med-info></med-info>
+        </div>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </body>
+</html>

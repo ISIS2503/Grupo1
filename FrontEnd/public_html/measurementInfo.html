@@ -1,0 +1,35 @@
+<!--
+ALERTA CON PAGINACION DEL LADO DEL CLIENTE
+-->
+<div>
+    <h2 class="form-title">Historial de mediciones</h2>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <!-- <div class="panel-heading">Competitors</div> -->
+        <div class="panel-heading">Historial de Mediciones</div>
+        <!-- Table -->
+        <table ng-if="totalR.length" datatable-setup class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Ubicación</th>
+                    <th>Temperatura</th>
+                    <th>Gases</th>
+                    <th>Iluminación</th>
+                    <th>Ruido</th>
+                    <th>TimeStamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="measurement in totalR | orderBy: 'location'">
+                    <td>{{measurement.location}}</td>
+                    <td>{{measurement.temperature}}</td>
+                    <td>{{measurement.gas}}</td>
+                    <td>{{measurement.light}}</td>
+                    <td>{{measurement.sound}}</td>
+                    <td>{{measurement.timestamp}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

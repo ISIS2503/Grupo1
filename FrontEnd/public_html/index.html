@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="losminerales">
+  <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+ 
+    <body style="padding-top: 80px;">
+        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="js/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/pagination.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css/bootstrap.min.css">
+        <toolbar></toolbar>
+        <div class="container theme-showcase" role="main">
+                            <div class="container-fluid bg-1 text-center">
+                    <h2>Monitoreo Ambiental</h2>
+                    <p class="lead">
+                        El sistema de monitoreo ambiental del grupo 1 los minerals
+                    </p>
+                </div>  
+            <div class="row">
+                <div class="col-md-6">
+                    <div align="center"> 
+                    <p class="lead">
+                        Para ver el historial de alertas, haz clic en el boton
+                    </p>
+                    </div> 
+                    <div align="center">
+                        <button type="button" class="btn-lg btn-primary" ui-sref='alertas'>Alertas</button>
+                   </div> 
+                </div>
+                <div class="col-md-6">
+                    <div align="center"> 
+                    <p class="lead">
+                        Para ver el historial de mediciones, haz clic en el boton
+                    </p>
+                    </div>
+                    <div align="center"> 
+                   <button type="button" class="btn-lg btn-primary" ui-sref='measurements'>Mediciones</button>
+                   </div>
+                </div>
+                </div>
+            <div align="center">
+                    <img src="http://www.proveedoresdemineria.com/assets/images/notas/fotos/sonora_mineria.jpg" class="img-responsive" alt="500x500" data-holder-rendered="true" align="center">
+                </div>
+            <hr>
+        <med-info></med-info>
+        </div>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
