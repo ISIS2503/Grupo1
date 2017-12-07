@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 // Archivo pagination.js
-(function() {
+(function(ng) {
   "use strict";
  
   var paginationModule = angular.module('simplePagination', []);
@@ -67,5 +67,5 @@
         };
     });// Filter range que nos crea un array segun un numero dado ej: num 3, array = [1,2,3]    
  
-})();
+})(window.angular);
 

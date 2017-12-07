@@ -9,20 +9,26 @@ and open the template in the editor.
         <title>Inicio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
- 
-    <body style="padding-top: 80px;">
-        <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/angular/angular.min.js"></script>
+        <script type="text/javascript" src="js/angular/angular-ui-router.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
         <script type="text/javascript" src="js/AngularControllers/pagination.js"></script>
         <script type="text/javascript" src="js/AngularControllers/app.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/alertas.js"></script>
+        <script type="text/javascript" src="js/AngularControllers/measurements.js"></script>
+    </head>
+ 
+    <body ng-app='losminerales' style="padding-top: 80px;">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css/bootstrap.min.css">
         <toolbar></toolbar>
         <div class="container theme-showcase" role="main">
                             <div class="container-fluid bg-1 text-center">
                     <h2>Monitoreo Ambiental</h2>
                     <p class="lead">
-                        El sistema de monitoreo ambiental del grupo 1 los minerals
+                        El sistema de monitoreo ambiental del grupo 1, Los Minerales
                     </p>
                 </div>  
             <div class="row">
@@ -53,8 +59,5 @@ and open the template in the editor.
             <hr>
         <med-info></med-info>
         </div>
-        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     </body>
 </html>

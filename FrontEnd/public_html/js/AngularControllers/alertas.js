@@ -4,9 +4,9 @@
  * and open the template in the editor.
  * ALERTA CON PAGINACION DEL LADO DEL CLIENTE
  */
-(function () {
+(function (ng) {
     //Se agrega la dependencia simplePagination al modulo
-    var alert = angular.module('alertas', []);
+    var alert = angular.module('alertas', ['ui.router']);
     alert.directive('toolbar', function () {
         return{
             restrict: 'E',
@@ -67,4 +67,4 @@
             };
         }
     ]);
-})();
+})(window.angular);

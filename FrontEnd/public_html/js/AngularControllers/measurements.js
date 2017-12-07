@@ -4,7 +4,7 @@
  * and open the template in the editor.
  * MEDICIONES CON PAGINACION DEL LADO DEL SEVIDOR
  */
-(function () {
+(function (ng) {
     var med = angular.module('measurements', []);
     med.directive('toolbar', function () {
         return{
@@ -65,4 +65,4 @@
             };
         }
     ]);
-})();
+})(window.angular);

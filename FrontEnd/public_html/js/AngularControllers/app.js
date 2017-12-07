@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-(function () {
+(function (ng) {
     //Se agrega la dependencia simplePagination al modulo
-    var aplicacionMonitoreo = angular.module('losminerales', ['ui.router','alertas','measurement']);
+    var aplicacionMonitoreo = angular.module('losminerales', ['ui.router', 'ngRoute','alertas','measurement']);
     aplicacionMonitoreo.config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/losminerales");
@@ -40,4 +40,4 @@
             controllerAs: 'toolbar'
         };
     })
-})();
+})(window.angular);
