@@ -6,22 +6,22 @@
  */
 (function (ng) {
     var med = angular.module('measurements', []);
-    med.directive('toolbar', function () {
-        return{
-            restrict: 'E',
-            templateUrl: 'toolbar.html',
-            controller: function () {
-                this.tab = 0;
-                this.selectTab = function (setTab) {
-                    this.tab = setTab;
-                };
-                this.isSelected = function (tabParam) {
-                    return this.tab === tabParam;
-                };
-            },
-            controllerAs: 'toolbar'
-        };
-    });
+    // med.directive('measurementToolbar', function () {
+    //     return{
+    //         restrict: 'E',
+    //         templateUrl: 'toolbar.html',
+    //         controller: function () {
+    //             this.tab = 0;
+    //             this.selectTab = function (setTab) {
+    //                 this.tab = setTab;
+    //             };
+    //             this.isSelected = function (tabParam) {
+    //                 return this.tab === tabParam;
+    //             };
+    //         },
+    //         controllerAs: 'toolbar'
+    //     };
+    // });
     med.directive('medInfo', function () {
         return{
             restrict: 'E',

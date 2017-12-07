@@ -6,8 +6,10 @@
 (function (ng) {
     //Se agrega la dependencia simplePagination al modulo
     var aplicacionMonitoreo = angular.module('losminerales', ['ui.router', 'ngRoute','alertas','measurements']);
-    aplicacionMonitoreo.config(function($stateProvider, $urlRouterProvider) {
+    aplicacionMonitoreo.config(['$locationProvider', '$urlRouterProvider', '$stateProvider', '$routeProvider',function($locationProvider, $urlRouterProvider, $stateProvider, $routeProvider) {
 
+
+        $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise("/losminerales");
 
         $stateProvider
@@ -23,7 +25,7 @@
                 url: "/measurements",
                 templateUrl: "measurements.html"
             });
-    });
+    }]);
  aplicacionMonitoreo.directive('toolbar', function () {
         return{
             restrict: 'E',

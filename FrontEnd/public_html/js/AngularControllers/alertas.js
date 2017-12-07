@@ -6,8 +6,8 @@
  */
 (function (ng) {
     //Se agrega la dependencia simplePagination al modulo
-    var alert = angular.module('alertas', ['ui.router']);
-    alert.directive('toolbar', function () {
+    var alert = angular.module('alertas', ['ui.router','ngRoute']);
+    alert.directive('alertToolbar', function () {
         return{
             restrict: 'E',
             templateUrl: 'toolbar.html',
