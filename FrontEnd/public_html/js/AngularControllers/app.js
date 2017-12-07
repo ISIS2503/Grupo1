@@ -18,11 +18,11 @@
                 templateUrl: "index.html"
             })
             .state('alertas', {
-                url: "/alertas",
+                url: "/alertas.html",
                 templateUrl: "alertas.html"
             })
             .state('measurements', {
-                url: "/measurements",
+                url: "/measurements.html",
                 templateUrl: "measurements.html"
             });
     }]);

@@ -12,9 +12,10 @@ and open the template in the editor.
         <title>Historial Alertas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="/alertas">
     </head>
  
-    <body ng-controller="MyCtrl" style="padding-top: 80px;">
+    <body ng-controller="alertasCtrl" style="padding-top: 80px;">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!--ANGULAR-->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
@@ -25,7 +26,7 @@ and open the template in the editor.
         <link data-require="datatables@1.9.4" data-semver="1.9.4" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables_themeroller.css" />
         <link data-require="datatables@1.9.4" data-semver="1.9.4" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.css" />
         <script data-require="datatables@1.9.4" data-semver="1.9.4" src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.js"></script>
-        <toolbar></toolbar>
+        <toolbar class="alertToolbar"></toolbar>
         <div class="container theme-showcase" role="main">
  
             <div class="row featurette">

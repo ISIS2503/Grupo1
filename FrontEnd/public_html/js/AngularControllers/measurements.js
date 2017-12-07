@@ -6,22 +6,22 @@
  */
 (function (ng) {
     var med = angular.module('measurements', []);
-    // med.directive('measurementToolbar', function () {
-    //     return{
-    //         restrict: 'E',
-    //         templateUrl: 'toolbar.html',
-    //         controller: function () {
-    //             this.tab = 0;
-    //             this.selectTab = function (setTab) {
-    //                 this.tab = setTab;
-    //             };
-    //             this.isSelected = function (tabParam) {
-    //                 return this.tab === tabParam;
-    //             };
-    //         },
-    //         controllerAs: 'toolbar'
-    //     };
-    // });
+    med.directive('measurementToolbar', function () {
+        return{
+            restrict: 'E',
+            templateUrl: 'toolbar.html',
+            controller: function () {
+                this.tab = 0;
+                this.selectTab = function (setTab) {
+                    this.tab = setTab;
+                };
+                this.isSelected = function (tabParam) {
+                    return this.tab === tabParam;
+                };
+            },
+            controllerAs: 'toolbar'
+        };
+    });
     med.directive('medInfo', function () {
         return{
             restrict: 'E',
@@ -31,7 +31,12 @@
                     self.measurements=[];
                     $scope.api=function(){
                         //CAMBIAR A LA DE MEDIDAS DE PEDRO
-                    var callApi = $http.get('http://localhost:8083/webresources/competitors').succes(function(data){
+                    var callApi = $http.get('http://172.24.42.34:9000/measurement', headers
+                        {
+                            'Access-Control-Allow-Origin': '*'
+                            'Access-Control-Allow-Credentials': 'true'
+                            'Access-Control-Expose-Headers': 'FooBar'
+                        }).succes(function(data){
                           self.measurements=data();
                         });    
                     };
@@ -44,7 +49,12 @@
     med.controller('MyCtrl', ['$scope', '$http',
         function MyCtrl($scope, $http) {
             //CAMBIAR A LA DE MEDIDAS DE PEDRO
-                var callApi = $http.get('http://localhost:8083/webresources/competitors').success(function (data) {
+                var callApi = $http.get('http://172.24.42.34:9000/measurement', headers
+                        {
+                            'Access-Control-Allow-Origin': '*'
+                            'Access-Control-Allow-Credentials': 'true'
+                            'Access-Control-Expose-Headers': 'FooBar'
+                        }).success(function (data) {
                     $scope.measurements = data;                   
                 });
                 callApi.then(function () {

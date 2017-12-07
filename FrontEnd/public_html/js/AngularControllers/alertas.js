@@ -8,6 +8,7 @@
     //Se agrega la dependencia simplePagination al modulo
     var alert = angular.module('alertas', ['ui.router','ngRoute']);
     alert.directive('alertToolbar', function () {
+        console.log("Passed, adding toolbar");
         return{
             restrict: 'E',
             templateUrl: 'toolbar.html',
@@ -34,7 +35,7 @@
                         /**
                          * CAMBIAR A LA DE ALERTAS DE PEDRO
                          */
-                        var callApi = $http.get('http://localhost:8083/webresources/competitors').succes(function(data){
+                        var callApi = $http.get('http://172.24.42.34:9000/webresources/competitors').succes(function(data){
                           self.alerts=data();
                         });
                     };
@@ -43,8 +44,8 @@
             controllerAs:'AlertsListCtrl'
         };
     });
-    alert.controller('MyCtrl', ['$scope', '$http',
-        function MyCtrl($scope, $http) {
+    alert.controller('alertasCtrl', ['$scope', '$http',
+        function alertasCtrl($scope, $http) {
             //CAMBIAR A LA DE ALERTAS DE PEDRO
                 var callApi = $http.get('http://localhost:8083/webresources/competitors').success(function (data) {
                     $scope.alerts = data;                   
