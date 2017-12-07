@@ -5,7 +5,7 @@
  * MEDICIONES CON PAGINACION DEL LADO DEL SEVIDOR
  */
 (function (ng) {
-    var med = angular.module('measurements', []);
+    var med = angular.module('measurements', ['ui.router', 'ngRoute']);
     med.directive('measurementToolbar', function () {
         return{
             restrict: 'E',
@@ -31,12 +31,12 @@
                     self.measurements=[];
                     $scope.api=function(){
                         //CAMBIAR A LA DE MEDIDAS DE PEDRO
-                    var callApi = $http.get('http://172.24.42.34:9000/measurement', headers
+                    var callApi = $http.get('http://172.24.42.34:9000/measurement', {headers:
                         {
-                            'Access-Control-Allow-Origin': '*'
-                            'Access-Control-Allow-Credentials': 'true'
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': 'true',
                             'Access-Control-Expose-Headers': 'FooBar'
-                        }).succes(function(data){
+                        }}).succes(function(data){
                           self.measurements=data();
                         });    
                     };
@@ -49,12 +49,12 @@
     med.controller('MyCtrl', ['$scope', '$http',
         function MyCtrl($scope, $http) {
             //CAMBIAR A LA DE MEDIDAS DE PEDRO
-                var callApi = $http.get('http://172.24.42.34:9000/measurement', headers
+                var callApi = $http.get('http://172.24.42.34:9000/measurement', {headers:
                         {
-                            'Access-Control-Allow-Origin': '*'
-                            'Access-Control-Allow-Credentials': 'true'
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': 'true',
                             'Access-Control-Expose-Headers': 'FooBar'
-                        }).success(function (data) {
+                        }}).success(function (data) {
                     $scope.measurements = data;                   
                 });
                 callApi.then(function () {

@@ -22,7 +22,7 @@ ALERTA CON PAGINACION DEL LADO DEL CLIENTE
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="alert in totalR | orderBy: 'location'">
+                <tr ng-repeat="alert in totalR | trackBy: 'id'">
                     <td>{{alert.alert_type}}</td>
                     <td>{{alert.trigger}}</td>
                     <td>{{alert.location}}</td>

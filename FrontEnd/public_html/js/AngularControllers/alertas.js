@@ -35,8 +35,14 @@
                         /**
                          * CAMBIAR A LA DE ALERTAS DE PEDRO
                          */
-                        var callApi = $http.get('http://172.24.42.34:9000/webresources/competitors').succes(function(data){
-                          self.alerts=data();
+                        var callApi = $http.get('http://172.24.42.34:9000/alerts', {headers:
+                        {
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': 'true',
+                            'Access-Control-Expose-Headers': 'FooBar'
+                        }}
+                            ).success(function(data){
+                          self.alerts=data;
                         });
                     };
                     $scope.api();
@@ -47,7 +53,13 @@
     alert.controller('alertasCtrl', ['$scope', '$http',
         function alertasCtrl($scope, $http) {
             //CAMBIAR A LA DE ALERTAS DE PEDRO
-                var callApi = $http.get('http://localhost:8083/webresources/competitors').success(function (data) {
+                var callApi = $http.get('http://172.24.42.34:9000/alerts', {headers:
+                        {
+                            'Access-Control-Allow-Origin': '*',
+                            'Access-Control-Allow-Credentials': 'true',
+                            'Access-Control-Expose-Headers': 'FooBar'
+                        }}
+                    ).success(function (data) {
                     $scope.alerts = data;                   
                 });
                 callApi.then(function () {
