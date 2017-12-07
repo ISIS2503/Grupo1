@@ -5,7 +5,7 @@
  */
 (function (ng) {
     //Se agrega la dependencia simplePagination al modulo
-    var aplicacionMonitoreo = angular.module('losminerales', ['ui.router', 'ngRoute','alertas','measurement']);
+    var aplicacionMonitoreo = angular.module('losminerales', ['ui.router', 'ngRoute','alertas','measurements']);
     aplicacionMonitoreo.config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/losminerales");
