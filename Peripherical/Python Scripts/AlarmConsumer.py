@@ -49,12 +49,19 @@ def alarmoutsend(prod, typ, min, max, val, mes):
 			cache.set(cc,0)
 
 print("creando")
-consumer = KafkaConsumer('alta.piso1.area1',
-                         group_id='my-group',
-                         bootstrap_servers=['172.24.42.20:8090'])
+consumer = KafkaConsumer('data',
+                         bootstrap_servers=['172.24.42.20:8090'],
+                         sasl_plain_username = 'data',
+                         sasl_plain_password = 'data',
+                         security_protocol = 'SASL_PLAINTEXT',
+                         sasl_mechanism = 'PLAIN')
 print("saliendo")
 print("creando prod")
-producer = KafkaProducer(bootstrap_servers=['172.24.42.20:8090'])
+producer = KafkaProducer(bootstrap_servers=['172.24.42.20:8090'],
+						 sasl_plain_username = 'data',
+                         sasl_plain_password = 'data',
+                         security_protocol = 'SASL_PLAINTEXT',
+                         sasl_mechanism = 'PLAIN')
 print("saliendo prod")
 location = 1001001
 

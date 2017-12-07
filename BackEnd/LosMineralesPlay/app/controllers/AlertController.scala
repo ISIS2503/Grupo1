@@ -57,10 +57,23 @@ class AlertController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc: Cont
       }
     }.getOrElse(Future.successful((BadRequest("invalid json"))))
   }
-  def test = Action {
-    println("holaaaa")
+
+  def offlineTest(date: String) = Action {
+    println("offline" + date)
     Ok("hola")
   }
+
+  def outOfBoundsTest(date: String) = Action {
+    println("outofbounds")
+    Ok("hola")
+  }
+
+  def noChangeTest(date: String) = Action {
+    println("nochange")
+    Ok("hola")
+  }
+
+
 }
 
 
