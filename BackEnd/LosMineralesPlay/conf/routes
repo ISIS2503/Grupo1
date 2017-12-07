@@ -29,6 +29,8 @@ POST        /noChangeAlert             controllers.AlertController.createNoChang
 POST        /outOfBoundsAlert          controllers.AlertController.createOutOfBoundsAlertFromJson
 
 #Getters
+GET         /measurement                controllers.MeasurementController.test
+GET         /alerts                        controllers.AlertController.test
 GET         /offlineAlert/*date        controllers.AlertController.offlineTest(date: String)
 GET         /noChangeAlert/*date             controllers.AlertController.noChangeTest(date: String)
 GET         /outOfBoundsAlert/*date          controllers.AlertController.outOfBoundsTest(date: String)

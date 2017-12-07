@@ -39,7 +39,6 @@ class MeasurementController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc
   }
 
   def test = Action {
-    println("holaaaa")
-    Ok("hola")
+    Ok("measurements: [\n{\n    \"_id\" : ObjectId(\"5a1c2f2e9d0c9e8665\"),\n    \"location\" : 1001001,\n    \"temperature\" : 3232.3,\n    \"gas\" : 5033.21,\n    \"light\" : 15220.54,\n    \"sound\" : 8223.2,\n    \"timestamp\" : \"\\\"2017-11-27T15:28:42.010Z\\\"\"\n},\n{\n    \"_id\" : ObjectId(\"5a1c2f2964804dadae9d0c9e8665\"),\n    \"location\" : 10011001,\n    \"temperature\" : 23.3,\n    \"gas\" : 5440.21,\n    \"light\" : 12350.54,\n    \"sound\" : 84433.2,\n    \"timestamp\" : \"\\\"2017-11-27T15:28:42.010Z\\\"\"\n},\n{\n    \"_id\" : ObjectId(\"5a1c2f296e8665\"),\n    \"location\" : 103301001,\n    \"temperature\" : 232323.3,\n    \"gas\" : 5055.21,\n    \"light\" : 15660.54,\n    \"sound\" : 833.2,\n    \"timestamp\" : \"\\\"2017-11-27T15:28:42.010Z\\\"\"\n}]")
   }
 }

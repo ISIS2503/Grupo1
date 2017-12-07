@@ -58,6 +58,10 @@ class AlertController @Inject()(val reactiveMongoApi: ReactiveMongoApi, cc: Cont
     }.getOrElse(Future.successful((BadRequest("invalid json"))))
   }
 
+  def test = Action {
+    Ok("alertas: [\n{\n    \"_id\" : ObjectId(\"5a1c34b06480bf\"),\n    \"alert_type\" : 2,\n    \"trigger\" : 1,\n    \"measurement\" : {\n        \"location\" : 100102201,\n        \"temperature\" : 223.3,\n        \"gas\" : 520.21,\n        \"light\" : 1250.54,\n        \"sound\" : 823.2,\n        \"timestamp\" : \" '\\\"2017-11-27T15\"\n    }\n},\n{\n    \"_id\" : ObjectId(\"5a1d0c9e92bf\"),\n    \"alert_type\" : 2,\n    \"trigger\" : 1,\n    \"measurement\" : {\n        \"location\" : 1001001,\n        \"temperature\" : 2223.3,\n        \"gas\" : 510.21,\n        \"light\" : 1503.54,\n        \"sound\" : 893.2,\n        \"timestamp\" : \" '\\\"2017-11-27T15\"\n    }\n},\n{\n    \"_id\" : ObjectId(\"5a1c349d0c9e92bf\"),\n    \"alert_type\" : 2,\n    \"trigger\" : 1,\n    \"measurement\" : {\n        \"location\" : 1001001,\n        \"temperature\" : 23.083,\n        \"gas\" : 507.21,\n        \"light\" : 1504.54,\n        \"sound\" : 8453.2,\n        \"timestamp\" : \" '\\\"2017-11-27T15\"\n    }\n}\n\n]")
+  }
+
   def offlineTest(date: String) = Action {
     println("offline" + date)
     Ok("hola")
